@@ -49,7 +49,7 @@ class Channel:
         """
         if self.socket.version == 1:
             join_req = dict(topic=self.topic, event=ChannelEvents.join,
-                            payload={}, ref=None)
+                            payload=self.params, ref=None)
         elif self.socket.version == 2:
             # [join_reference, message_reference, topic_name, event_name, payload]
             self.control_msg_ref = str(uuid.uuid4())
